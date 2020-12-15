@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+    <link href="css.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="form">
+
+
+        <div class="country">
+            <label>Country:</label>
+            <select id="input" onchange="show()">
+                <p> Country: </p>
+                <option>select Country</option>
+
+                <option >Bahamas</option>
+                <option >Bahrain</option>
+                <option  >Bangladesh</option>
+                <option >Barbados</option>
+                <option >Belarus</option>
+                <option >Belgium</option>
+
+            </select>
+        </div>
+
+        <div class="division" >
+            <label>Division:</label>
+            <div class="select">
+                <select id="new" onchange="displaydistrict()" >
+                    <option selected> --Select--</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="district">
+            <label>District:</label>
+            <div class="select">
+                    <select id="districtsele" onchange="displayUpazila()" >
+                        <option selected> --Select--</option>
+                    </select>
+            </div>
+        </div>
+        <div class="upazila">
+            <label> Upazila:</label>
+            <div class="select">
+                <select id="upazila" onchange="displayunion()">
+                    <option selected> --Select--</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="union">
+            <label> Union</label>
+            <div class="select">
+                <select id="union">
+                    <option selected> --Select--</option>
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
+
+
+<script>
+    function show()
+    {
+        var country= document.getElementById("input").value;
+
+        if (country==="Bangladesh")
+        {
+            var arr=["Barishal", "Chattogram", "Dhaka","Khulna", "Mymensingh","Rajshahi","Rangpur","Sylhet"];
+        }
+        if (country === "select option") {
+            arr = [];
+
+
+        }
+
+        var string="";
+        for(i=0; i<arr.length;i++)
+        {
+            string=string+"<option >"+arr[i]+"</option>";
+        }
+        //string= "<select>" +string+ "</select>";
+        document.getElementById("new").innerHTML=string;
+
+
+    }
+    function displaydistrict() {
+        var district = document.getElementById("district")
+         var value = document.getElementById("new").value;
+//        district.innerHTML = value;/
+        var distname=[];
+        if(value==="Chattogram")
+        {
+            console.log("Yes chattogram selected");
+             distname= ["বান্দরবান"
+                ,"ব্রাহ্মণবাড়িয়ে",
+                "চাঁদপুর",
+                "চট্টগ্রাম",
+                "কক্সবাজার",
+                "কুমিল্লা",
+                "ফেনী",
+                "নোয়াখালী",
+                "রংপুর",
+                "রাঙ্গামাটি",
+                "খাগড়াছড়ি",
+                "লক্ষ্মীপুর"
+            ];
+
+        }
+        if (value==="Khulna")
+        {
+            distname= [ "যশোর", "সাতক্ষীরা", "মেহেরপুর","নড়াইল", "চুয়াডাঙ্গা", "কুষ্টিয়া", "মাগুরা", "খুলনা", "বাগেরহাট", "ঝিনাইদহ"];
+
+        }
+        if(value==="Rajshahi")
+        {
+            distname = [
+                "সিরাজগঞ্জ",
+                "পাবনা",
+                "বগুড়া",
+                "রাজশাহী",
+                "নাটোর",
+                "জয়পুরহাট",
+                "চাঁপাইনবাবগঞ্জ",
+                "নওগাঁ"
+            ];
+
+        }
+        if(value==="Barishal")
+        {
+            console.log("barishal selected");
+            distname= ["ঝালকাঠি", "পটুয়াখালী","বরিশাল","পিরোজপুর","ভোলা","বরগুনা"];
+        }
+        if (value==="Sylhet")
+        {
+            distname=["সিলেট","মৌলভীবাজার","হবিগঞ্জ","সুনামগঞ্জ"];
+        }
+        if (value==="Dhaka") {
+            distname = ["নরসিংদী", "শরীয়তপুর", "গাজীপুর", "নারায়ণগঞ্জ", "টাংগাইল", "কিশোরগঞ্জ,", "মানিকগঞ্জ", "ঢাকা", "মাদারীপুর", "রাজবাড়ি", "নরসিংদী", "গোপালগঞ্জ "];
+
+        }
+        var district="";
+        for(i=0; i<distname.length;i++)
+        {
+            district=district+"<option >"+distname[i]+"</option>";
+
+        }
+        //string= "<select>" +string+ "</select>";
+        document.getElementById("districtsele").innerHTML=district;
+
+    }
+    function displayUpazila() {
+        var upazilaname=[];
+         var new1=document.getElementById("districtsele").value;
+      //  document.getElementById("upazila").innerHTML=new1;
+        if(new1==="ঢাকা")
+        {
+            upazilaname=["ধামরাই" ,"দোহার" ,"কেরানীগঞ্জ" ,"নবাবগঞ্জ","সাভার"];
+        }
+        if(new1==="নরসিংদী")
+        {
+            upazilaname =["বেলাবো" , "মনোহরদী", "নরসিংদী সদর" , "পলাশ",  "রায়পুরা", "শিবপুর" ];
+        }
+        if(new1==="শরীয়তপুর")
+        {
+            upazilaname=["ভেদরগঞ্জ", "ডামুড্যা ", "গোসাইরহাট", "নড়িয়া", "শরিয়তপুর সদর", "জাজিরা "];
+        }
+        if(new1==="গোপালগঞ্জ")
+        {
+            upazilaname= ["গোপালগঞ্জ সদর" ," কাশিয়ানী", "কোটালীপাড়া ", "মুকসুদপুর" ,"টুঙ্গিপাড়া"];
+        }
+        if (new1==="নারায়নগঞ্জ ")
+        {
+            upazilaname=["আড়াইহাজার","সোনারগাঁও","বন্দর", "নারায়ণগঞ্জ সদর","রূপগঞ্জ"];
+        }
+        if (new1==="টাংগাইল")
+        {
+            upazilaname=["বাসাইল", "ভুয়াপুর","দেলদুয়ার","ঘাটাইল", "গোপালপুর", "কালিহাতি", "মধুপুর", "মির্জাপুর", "নাগরপুর ", "সখিপুর", "টাঙ্গাইল সদর"," ধনবাড়ী"];
+        }
+        if(new1==="গাজীপুর")
+        {
+            upazilaname=["গাজীপুর সদর","কালিয়াকৈর","কালীগঞ্জ", "কাপাসিয়া","শ্রীপুর" ];
+        }
+        if (new1==="রাজবাড়ি")
+        {
+            upazilaname=["বালিয়াকান্দি", "গোয়ালন্দ ·" ,"পাংশা", "রাজবাড়ী সদর", "কালুখালী"];
+        }
+
+//        chattgoram er upazila
+
+        if (new1==="চট্টগ্রাম")
+        {
+         upazilaname=["মীরসরাই", "সীতাকুণ্ড", "ফটিকছড়ি," ,"রাউজান", "রাঙ্গুনিয়া", "হাটহাজারী", "সাতকানিয়া", "পটিয়া", "চন্দনাইশ", "লোহাগাড়া, সন্দ্বীপ", "বোয়ালখালি,", "আনোয়ারা,", "বাঁশখালী", "কর্ণফুলী"];
+        }
+        if(new1==="কক্সবাজার")
+        {
+            upazilaname=["রামু", "চকরিয়া", "কুতুবদিয়া", "পেকুয়া", "উখিয়া", "টেকনাফ", "মহেশখালী"];
+        }
+        if (new1==="কুমিল্লা")
+        {
+            upazilaname=["আদর্শ সদর", "সদর দক্ষিণ", "বুড়িচং", "দেবিদ্বার", "চৌদ্দগ্র", "চান্দিনা", "মুরাদনগর", "বরুড়া", "দাউদকান্দি", "মনোহরগঞ্জ, লাকসাম", "নাঙ্গলকোট", "ব্রাহ্মণপাড়া", "হোমনা", "মেঘনা", "তিতাস", "লালমাই"];
+        }
+        if(new1==="ব্রাহ্মণবাড়িয়ে")
+        {
+            upazilaname=["সদর", "সরাইল", "আখাউড়া", "কসবা", "নাসিরনগর", "বিজয়নগর", "আশুগঞ্জ", "নবীনগর", "বাঞ্ছারামপুর"];
+        }
+        if(new1==="ফেনী")
+        {
+            upazilaname=["সদর", "ছাগলনাইয়া", "দাগনভূইঞা", "পরশুরাম ", "সোনাগাজী ", "ফুলগাজী"];
+        }
+        if(new1==="চাঁদপুর")
+        {
+            upazilaname=["সদর", "মতলব উত্তর", "মতলব দক্ষিণ", "ফরিদগঞ্জ", "হাইমচর", "শাহরাস্তি", "কচুয়া", "হাজীগঞ্জ"];
+        }
+        if (new1==="লক্ষ্মীপুর")
+        {
+            upazilaname=["সদর", "রায়পুর", "রামগঞ্জ", "রামগতি", "কমলনগর।"];
+        }
+        if (new1==="নোয়াখালী")
+        {
+            upazilaname=["সদর", "বেগমগঞ্জ", "কোম্পানিগঞ্জ ",  "চাটখিল" , "হাতিয়া", "সুবর্ণচর", "সেনবাগ", "কবিরহাট", "সোনাইমুড়ি"];
+        }
+        if (new1==="খাগড়াছড়ি")
+        {
+            upazilaname=["সদর", "দীঘিনালা", "রামগড়", "মানিকছড়ি,", "মহালছড়ি,", "পানছড়ি,", "মাটিরাঙ্গা", "লক্ষ্মীছড়ি,", "গুইমারা"];
+        }
+        if (new1==="রাঙ্গামাটি")
+        {
+            upazilaname=["সদর", "কাউখালি", "নানিয়ারচর", "লংগদু", "রাজস্থলি", "বিলাইছড়ি,", "বরকল", "বাঘাইছড়ি,", "কাপ্তাই", "জুরাছড়ি]"];
+        }
+        if (new1==="বান্দরবান")
+        {
+            upazilaname=["বান্দরবান সদর", "রুমা", "থানচি", "নাইক্ষ্যংছড়ি,", "রোয়াংছড়ি", "লামা", "আলীকদম"];
+        }
+        var upazila="";
+        for(i=0; i<upazilaname.length;i++)
+        {
+            upazila=upazila+"<option >"+upazilaname[i]+"</option>";
+
+        }
+        //string= "<select>" +string+ "</select>";
+        document.getElementById("upazila").innerHTML=upazila;
+    }
+    function displayunion()
+    {
+        var unionname=[];
+        var new2=document.getElementById("upazila").value;
+
+
+        if(new2==="রামু")
+        {
+            unionname=["কচ্ছপিয়া","গর্জনিয়া","ফতেখারকুল","কাউয়ারখোপ","চাকমারকুল","ঈদগড়","জোরিয়ানালা","রশিদ নগর","দক্ষিন মিঠাছিড়","খুনিয়া পালং","রাজারকুল"];
+        }
+        //string= "<select>" +string+ "</select>";
+        if (new2=="চকরিয়া")
+        {
+            unionname=["	কাকারা ইউনিয়ন",
+                   	"কৈয়ারবিল ইউনিয়ন",
+                   	"কোনাখালী ইউনিয়ন",
+                   	"খুটাখালী ইউনিয়ন",
+             	    "চিরিংগা ইউনিয়ন",
+                	"ঢেমুশিয়া ইউনিয়ন",
+                    "ডুলাহাজারা ইউনিয়ন",
+                   	"পশ্চিম বড় ভেওলা ইউনিয়ন",
+                   	"পূর্ব বড় ভেওলা ইউনিয়ন",
+                  	"বদরখালী ইউনিয়ন",
+                  	"বমু বিলছড়ি ইউনিয়ন",
+                 	"বরইতলী ইউনিয়ন",
+                 	"ভেওলা মানিকচর ইউনিয়ন",
+                   	"লক্ষ্যারচর ইউনিয়ন",
+                    "সাহারবিল ইউনিয়ন",
+                  	"সুরাজপুর মানিকপুর ইউনিয়ন",
+                	"হারবাং ইউনিয়ন",
+                  	"ফাঁসিয়াখালী ইউনিয়ন"];
+        }
+        if(new2==="বান্দরবান সদর")
+        {
+            unionname=["ইসলাম পুর","পোক খালী","ইসলামাবাদ","ঈদগাহ","জালালাবাদ","চৌফলদন্ডী  ","ভারুয়া খালী","পি.এম.খালী","খুরুশকুল", "ঝিলংজা"];
+        }
+        if (new2==="কুতুবদিয়া")
+        {
+            unionname=["আলিআকবরডেইলইউনিয়ন", "উত্তরধুরুংইউনিয়ন", "কৈয়ারবিলইউনিয়ন", "দক্ষিণধুরুংইউনিয়ন", "বড়ঘোপইউনিয়ন", "লেমসিখালীইউনিয়ন"];
+        }
+
+        var union="";
+        for(i=0; i<unionname.length;i++)
+        {
+            union=union+"<option >"+unionname[i]+"</option>";
+
+        }
+        //string= "<select>" +string+ "</select>";
+        document.getElementById("union").innerHTML=union;
+
+    }
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

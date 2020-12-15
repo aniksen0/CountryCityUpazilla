@@ -1,0 +1,54 @@
+div
+{
+    display: inline-block;
+
+}
+body
+{
+    width:500px;
+    height:400px;
+    background-color: antiquewhite;
+}
+.container
+{
+
+    border: 3px solid green;
+    padding: 10px;
+
+
+
+}
+.country
+{
+    display: inline-block;
+    padding:15px 15px 15px 15px;
+    background-color: aquamarine;
+}
+.division
+{
+    display: inline-block;
+    padding:15px 19px 15px 15px;
+    background-color: lightcoral;
+}
+.district
+{
+    display: inline-block;
+    padding:15px 24px 15px 15px;
+    background-color: darksalmon;
+}
+.upazila
+{
+    display: inline-block;
+    padding:15px 15px 15px 15px;
+    background-color: aqua;
+}
+.union
+{
+    display: inline-block;
+    padding:15px 19px 15px 15px;
+    background-color: darkcyan;
+}
+.select
+{
+    float: right;
+}

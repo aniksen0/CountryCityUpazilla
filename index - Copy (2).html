@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript</title>
+</head>
+<body>
+<div class="container">
+    <div class="country">
+        <label>Country:</label>
+        <select id="input" onchange="show()">
+            <p> Country: </p>
+            <option>select Country</option>
+
+            <option >Bahamas</option>
+            <option >Bahrain</option>
+            <option  >Bangladesh</option>
+            <option >Barbados</option>
+            <option >Belarus</option>
+            <option >Belgium</option>
+            <option >Belize</option>
+            <option>Benin</option>
+            <option >Bermuda</option>
+            <option >Bhutan</option>
+            <option >Bolivia</option>
+            <option>Bosnia and Herzegovina</option>
+            <option >Botswana</option>
+            <option >Bouvet Island</option>
+            <option >Brazil</option>
+            <option >British Indian Ocean Territory</option>
+            <option >Brunei Darussalam</option>
+            <option value='BG'>Bulgaria</option>
+            <option value='BF'>Burkina Faso</option>
+            <option value='BI'>Burundi</option>
+            <option value='KH'>Cambodia</option>
+            <option value='CM'>Cameroon</option>
+        </select>
+    </div>
+
+    <div id="division" >
+        <label>Division:</label>
+        <select id="new" onchange="displaydistrict()" >
+
+        </select>
+    </div>
+
+    <div id="district">
+        <label>District:</label>
+        <select id="districtsele" onchange="displayUpazila()" >
+
+        </select>
+    </div>
+    <div class="upazila">
+        <label> Upazila:</label>
+        <p id="upazila">
+
+        </p>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+<script>
+    function show()
+    {
+        var country= document.getElementById("input").value;
+
+        if (country==="Bangladesh")
+        {
+            var arr=["Barishal", "Chattogram", "Dhaka","Khulna", "Mymensingh","Rajshahi","Rangpur","Sylhet"];
+        }
+        if (country === "select option") {
+            arr = [];
+        }
+
+        var string="";
+        for(i=0; i<arr.length;i++)
+        {
+            string=string+"<option >"+arr[i]+"</option>";
+        }
+        //string= "<select>" +string+ "</select>";
+        document.getElementById("new").innerHTML=string;
+
+
+    }
+    function displaydistrict() {
+        var district = document.getElementById("district")
+         var value = document.getElementById("new").value;
+//        district.innerHTML = value;/
+        var distname=[];
+        if(value==="Chattogram")
+        {
+            console.log("Yes chattogram selected");
+             distname= ["বান্দরবান"
+                ,"ব্রাহ্মণবাড়িয়ে",
+                "চাঁদপুর",
+                "চট্টগ্রাম",
+                "কক্সবাজার",
+                "কুমিল্লা",
+                "ফেনী",
+                "নোয়াখালী",
+                "রংপুর",
+                "রাঙ্গামাটি",
+                "খাগড়াছড়ি",
+                "লক্ষ্মীপুর"
+            ];
+
+        }
+        if (value==="Khulna")
+        {
+            distname= [ "যশোর", "সাতক্ষীরা", "মেহেরপুর","নড়াইল", "চুয়াডাঙ্গা", "কুষ্টিয়া", "মাগুরা", "খুলনা", "বাগেরহাট", "ঝিনাইদহ"];
+
+        }
+        if(value==="Rajshahi")
+        {
+            distname = [
+                "সিরাজগঞ্জ",
+                "পাবনা",
+                "বগুড়া",
+                "রাজশাহী",
+                "নাটোর",
+                "জয়পুরহাট",
+                "চাঁপাইনবাবগঞ্জ",
+                "নওগাঁ"
+            ];
+
+        }
+        if(value==="Barishal")
+        {
+            console.log("barishal selected");
+            distname= ["ঝালকাঠি", "পটুয়াখালী","বরিশাল","পিরোজপুর","ভোলা","বরগুনা"];
+        }
+        if (value==="Sylhet")
+        {
+            distname=["সিলেট","মৌলভীবাজার","হবিগঞ্জ","সুনামগঞ্জ"];
+        }
+        if (value==="Dhaka") {
+            distname = ["নরসিংদী", "শরীয়তপুর", "গাজীপুর", "নারায়ণগঞ্জ", "টাংগাইল", "কিশোরগঞ্জ,", "মানিকগঞ্জ", "ঢাকা", "মাদারীপুর", "রাজবাড়ি", "নরসিংদী", "গোপালগঞ্জ "];
+
+        }
+        var district="";
+        for(i=0; i<distname.length;i++)
+        {
+            district=district+"<option >"+distname[i]+"</option>";
+
+        }
+        //string= "<select>" +string+ "</select>";
+        document.getElementById("districtsele").innerHTML=district;
+
+    }
+    function displayUpazila() {
+         var new1=document.getElementById("districtsele").value;
+        document.getElementById("upazila").innerHTML=new1;
+        if(new1==="ঢাকা")
+        {
+            upazilaname=["ধামরাই" ,"দোহার" ,"কেরানীগঞ্জ" ,"নবাবগঞ্জ","সাভার"];
+        }
+    }
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
